@@ -69,14 +69,13 @@ if csv_file:
     preds = model.predict(torch.tensor([tokens]).to(DEVICE))
     labels = labels_encoder.inverse_transform(preds)
 
-
     st.markdown("### Таблица:")
     st.dataframe(df)
 
     table = r"""  
-    Оригинальный лейбл | предсказанная метка
-    ---|--- 
-    """
+Оригинальный лейбл | предсказанная метка
+---|--- 
+"""
 
     for orig, guess in zip(df.columns, labels):
         table += orig + "|" + guess + "\n"
